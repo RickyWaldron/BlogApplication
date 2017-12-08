@@ -1,0 +1,22 @@
+body{
+	background-color: brown;
+}
+.addMessageContainer{
+	margin: 0 auto;
+	text-align: center
+}
+
+.inputTitleMessage{
+	height: 20px;
+	width: 40%;
+}
+
+.inputBodyMessage{
+	width: 40%;
+	height: 400px;
+}
+
+.inputSubmitMessage{
+	height: 20px;
+	width: 40%;
+}

@@ -1,0 +1,12 @@
+a {
+	text-decoration: none;
+	margin-top: 100px;
+}
+
+ul.navBar {
+	list-style: none;
+	text-align: center;
+	margin: 0 auto;
+	display: inline;
+}
+

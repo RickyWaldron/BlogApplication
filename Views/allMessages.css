@@ -1,0 +1,22 @@
+.formTable{
+	margin: 0 auto;
+}
+
+.completeTable {
+	margin: 0 auto;
+}
+.headRow {
+	margin: 0 auto;
+	width: 80%;
+}
+.divRow {
+	width: 80%;
+	margin: 0 auto;
+}
+.divCellHeader {
+	display: inline-block;
+}
+
+.divCell {
+	display: inline-block;
+}

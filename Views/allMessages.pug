@@ -1,0 +1,57 @@
+html
+	head
+		include navBar.pug
+		title all messages #{title}
+		script(src="https://code.jquery.com/jquery-3.2.1.min.js"
+				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+				crossorigin="anonymous")
+		style
+			include allMessages.css
+
+	body
+		form(class="formTable")
+			div(class="completeTable")
+				div(class="headRow")
+					div(class="divCellHeader")
+						p message id
+					div(class="divCellHeader")
+						p Title
+					div(class="divCellHeader")
+						p Body
+					div(class="divCellHeader")
+						p user id
+				div(class="divRow")
+					div(class="divCellMessageId")
+					div(class="divCell")
+					div(class="divCell")
+					div(class="divCellUserId")
+					div(class="commentClass", type="hidden")
+						form.addComment(method="POST", action="/addComment")
+						div(class="commentCell")
+
+				- for (var i=0; i < data[0].rows.length; i++)
+					div(class="divRow")
+						div(class="divCellMessageId") #{data[0].rows[i].message_id}
+						div(class="divCell") #{data[0].rows[i].title}
+						div(class="divCell") #{data[0].rows[i].body}
+						div(class="divCellUserId") #{data[0].rows[i].user_id}
+						div(class="commentClass", type="hidden")
+							p.bodyComment
+								input.inputBodyComment(type="text", name="bodyComment", value="body of your comment", autocomplete="off")
+							p.hiddenMessageId
+								input.inputHiddenMessageId(type="hidden", name="hiddenMessageId", value= `${data[0].rows[i].message_id}`)
+							p.hiddenUserId
+								input.inputHiddenUserId(type="hidden", name="hiddenUserId", value=`${data[0].rows[i].user_id}`)
+							p.submitMessage
+								input.inputSubmitComment(type="submit", name="submit", value="Add Comment", autocomplete="off")
+					- for(var j = 0; j < comments[0].rows.length; j++)
+						if (`${comments[0].rows[j].message_id}` == `${data[0].rows[i].message_id}`)
+							div(class="commentClass")
+								div(class="commentCell") #{comments[0].rows[j].body}
+
+				div(class="commentClass")
+					div(class="commentCell") #{newComment}
+
+									
+								
+						
