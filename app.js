@@ -6,6 +6,7 @@ const fs = require('fs')
 var session = require('express-session')
 const queryParser = require('query-parser')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
 
 app.use(session({
     secret: process.env.secret,
@@ -27,7 +28,6 @@ const client = new Client({
 client.connect()
 app.use(bodyParser.urlencoded())
 app.set('view engine', 'pug')
-
 require("./login.js")(app, client)
 require("./addMessages.js")(app, client)
 require("./allMessages.js")(app, client)
