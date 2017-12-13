@@ -6,6 +6,8 @@ const fs = require('fs')
 var session = require('express-session')
 const queryParser = require('query-parser')
 const bodyParser = require('body-parser')
+var port = process.env.port
+
 
 app.use(session({
     secret: process.env.secret,
@@ -21,7 +23,7 @@ const client = new Client({
     host: 'localhost',
     database: process.env.database,
     password: process.env.password,
-    port: 5432,
+    port: process.env.portdatabase,
 })
 
 client.connect()
@@ -39,6 +41,6 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("listening")
 })
