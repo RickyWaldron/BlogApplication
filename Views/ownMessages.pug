@@ -6,7 +6,7 @@ html
 				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 				crossorigin="anonymous")
 		style
-			include allMessages.css		
+			include ownMessages.css		
 body
 		form(class="formTable")
 			div(class="completeTable")
@@ -17,16 +17,10 @@ body
 						p Title
 					div(class="divCellHeader")
 						p Body
-					div(class="divCellHeader")
-						p user id
-				div(class="divRow")
-					div(class="divCell")
-					div(class="divCell")
-					div(class="divCell")
-					div(class="divCell")
+				
+					
 				- for (var i = 0; i < data[0].rows.length; i++)
 					div(class="divRow")
 						div(class="divCell") #{data[0].rows[i].message_id}
 						div(class="divCell") #{data[0].rows[i].title}
 						div(class="divCell") #{data[0].rows[i].body}
-						div(class="divCell") #{data[0].rows[i].user_id}
