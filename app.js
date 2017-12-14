@@ -4,7 +4,6 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 var session = require('express-session')
-const queryParser = require('query-parser')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
 var port = process.env.port
