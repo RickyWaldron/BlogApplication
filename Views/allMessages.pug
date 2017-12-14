@@ -68,7 +68,7 @@ html
 									console.log(theBody)
 									console.log(postId)
 										$.ajax({
-											url: "http://localhost:3000/addComment",
+											url: "/addComment",
 											method: "POST",
 											data: {postId: postId, theBody: theBody},
 											success: function (data) {
