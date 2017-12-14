@@ -7,6 +7,7 @@ var session = require('express-session')
 const queryParser = require('query-parser')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
+var port = process.env.port
 
 app.use(session({
     secret: process.env.secret,
@@ -39,6 +40,6 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.listen(80, () => {
+app.listen(port, () => {
     console.log("listening")
 })
