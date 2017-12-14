@@ -1,0 +1,12 @@
+html
+	head
+		include navBar.pug
+		title add message #{title}
+		style
+			include addMessage.css
+	body
+		div(class="container")
+			form.addMessage(method="POST", action="/addMessages")
+				input.inputTitleMessage(type="text", name="title", value="title of your message", autocomplete="off")
+				input.inputBodyMessage(type="text", name="bodyMessage", value="body of your message", autocomplete="off")
+				input.inputSubmitMessage(type="submit", name="submit", value="Add message", autocomplete="off")
