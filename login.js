@@ -10,14 +10,6 @@ module.exports = (app, client) => {
 			console.log("reached")
 			let userName = req.body.username
 			let password = req.body.password
-			var salt = bcrypt.genSalt(10, function(error, salt) {
-					console.log("reached2")
-					console.log("error:" + error)
-					console.log("SALT: " + salt)
-                	bcrypt.hash(password, salt, null, function(err, hash) {
-                		console.log("reached3")
-                		console.log("the error" + err)
-                		console.log("The hash", hash)
 			const query = {
                   	text: (`SELECT * FROM users WHERE username = '${userName}'`)
                     }
@@ -28,7 +20,7 @@ module.exports = (app, client) => {
 					}
 					else if (result.rows.length == 0){
 						const query2 = {
-						text: (`INSERT INTO users (username, password) VALUES ('${userName}', '${hash}') RETURNING *`)
+						text: (`INSERT INTO users (username, password) VALUES ('${userName}', '${password}') RETURNING *`)
 						}
 							client.query(query2, (error, result) => {
 							if (error) throw error
@@ -40,16 +32,12 @@ module.exports = (app, client) => {
 				}
 			})		
 		})
-	})
-})
+
 		app.post('/login', function(req, res) {
                 let userName = req.body.username
                 let password = req.body.password
-               	bcrypt.compare(password, hash, function(err, res) {
-               		console.log("true" + res)
-                		console.log("the error" + err)
                 		const query = {
-                        	text: (`SELECT * FROM users WHERE username = '${userName}' AND password ='${hash}'`)
+                        	text: (`SELECT * FROM users WHERE username = '${userName}' AND password ='${password}'`)
                     }
                     client.query(query, (error, result) => {
                     	if (error) throw error
@@ -64,5 +52,4 @@ module.exports = (app, client) => {
             	}
             })			
         })  
-    })
 }		

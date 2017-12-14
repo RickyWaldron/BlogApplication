@@ -1,5 +1,5 @@
 body{
-	background-color: brown;
+	background-color: white;
 }
 
 .formTable{
@@ -22,7 +22,7 @@ body{
 }
 
 .divCellHeader {
-	color: white;
+	color: black;
 	width: 15%;
 	text-align: center;
 	display: inline-block;
@@ -31,7 +31,7 @@ body{
 }
 
 .divCell {
-	color: white;
+	color: black;
 	width: 15%;
 	padding: 10px;
 	display: inline-block;
