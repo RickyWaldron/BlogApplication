@@ -25,13 +25,11 @@ module.exports =
     }) 
 
         app.post('/addComment', (req, result) => {
-            console.log("reached")
             if(req.session.user) {
             let userName = req.session.user
             let theBody  = req.body.theBody
             let messageId = req.body.postId
             let userId = 0
-            console.log("messageId", messageId, "comment: ", theBody)
             const query1 = {
                 text: (`SELECT user_id FROM users WHERE username= '${userName}'`)
             }
@@ -46,7 +44,6 @@ module.exports =
                 }
                 client.query(query3, (err, res) => {
                     if (err) throw err
-                    console.log("the adding comment result: ", res.rows)
                 
                     const query4 = {
                         text: (`SELECT * FROM comments WHERE message_id='${messageId}'`)
@@ -55,10 +52,7 @@ module.exports =
                         if (err) throw err
                         let newComment = []
                         for(var i=0; i < res.rows.length; i++){
-                            console.log(res.rows.length)
-                        console.log("Reached: deze comment ")
                         newComment.push(res.rows)
-                        console.log(newComment + "dit is de nieuwe comment")
                         result.end('allMessages', {data: newComment})
                         } 
                     })

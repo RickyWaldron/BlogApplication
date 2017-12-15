@@ -12,13 +12,13 @@ html
 			div(class="buttons")
 				input(class="loginButton",type="button", value="Login")
 				FORM(class="loginClass",ACTION="/login", METHOD="POST")
-					input(class="textField", type="text", name="username", value="username")
-					input(class="textField", type="password", name="password", password="password")
+					input(class="textField", type="text", name="username", value="username", placeholder="username")
+					input(class="textField", type="password", name="password", password="password", placeholder="password")
 					input(class="submitButton",type="submit", name="submit", value="Login")
 				input(class="signupButton",type="button", value="Sign Up")
 				FORM(class="signupClass", ACTION="/signup", METHOD="POST")
-					input(class="textField", type="text", name="username", value="username")
-					input(class="textField", type="password", name="password", password="password")
+					input(class="textField", type="text", name="username", value="username", placeholder="username")
+					input(class="textField", type="password", name="password", password="password", placeholder="passwords")
 					input(class="submitButton", type="submit", name="submit", value="Sign Up")
 
 	script.

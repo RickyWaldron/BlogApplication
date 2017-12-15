@@ -18,7 +18,6 @@ module.exports =
 				client.query(query2, (err, res) => {
 					if (err) throw (err)
 					   myMessages.push(res)
-					console.log(myMessages)
 					response.render('ownMessages', { data: myMessages })           
 				})       
 			})

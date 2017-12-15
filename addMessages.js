@@ -21,7 +21,6 @@ module.exports = (app, client) => {
 
 	    client.query(query3, (err, result) => {
 	        if (err) throw err
-	        console.log(result.rows.length)
 	        res.render('addMessages')       
 	    })
 	})
