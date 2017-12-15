@@ -17,8 +17,9 @@ html
 					input(class="submitButton",type="submit", name="submit", value="Login")
 				input(class="signupButton",type="button", value="Sign Up")
 				FORM(class="signupClass", ACTION="/signup", METHOD="POST")
-					input(class="textField", type="text", name="username", value="username", placeholder="username")
-					input(class="textField", type="password", name="password", password="password", placeholder="passwords")
+					input(class="textField", id="signupUsername", type="text", name="username", value="username", placeholder="username")
+					input(class="textField", id="signupPassword", type="password", name="password", password="password", placeholder="password")
+					input(class="textField", id="signupPasswordCheck", type="password", name="passwordCheck", password="password", placeholder="password check")
 					input(class="submitButton", type="submit", name="submit", value="Sign Up")
 
 	script.
@@ -30,6 +31,19 @@ html
 			$(".loginClass").hide()
 			$(".signupButton").hide()
 			$(".loginButton").show()
+				$(".signupClass").submit(function(event) {
+					let username = $("#signupUsername").val()
+					let pass = $("#signupPassword").val()
+					let passCheck = $("#signupPasswordCheck").val()	
+					if(pass !== passCheck) {
+					event.preventDefault()
+					alert("PASSWORD DOES NOT MATCH")
+					} 	
+					else if (pass.length < 8)	{
+					event.preventDefault()
+					alert("password is not long enough")
+					}
+				})
 			})
 			$(".loginButton").click(function(){
 			$(".loginClass").show()
@@ -37,5 +51,4 @@ html
 			$(".loginButton").hide()
 			$(".signupButton").show()
 			})
-		})
-				
+		})	
